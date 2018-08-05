@@ -7,3 +7,5 @@ erl_crash.dump
 *.ez
 *.beam
 /config/*.secret.exs
+/SUSCard.capx.autosave
+/SUSCard.capx.backup1
