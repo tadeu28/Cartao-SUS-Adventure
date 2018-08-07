@@ -1,3 +1,18 @@
 1) cordova create br.com.games.tadeuclasse cartaosus
 2) (dentro da pasta do projeto) cordova platform add android
 3) cordova build android
+
+Assinando APK
+
+C:\projetos\br.com.games.tadeuclasse\platforms\android\app\build\outputs\apk\release> keytool -genkey -v -keystore CartaoSusAdventure.keystore -alias CartaoSusAdventure -keyalg RSA -keysize 2048 -validity 10000
+
+
+C:\projetos\br.com.games.tadeuclasse\platforms\android\app\build\outputs\apk\release>jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore CartaoSusAdventure.keystore app-release-unsigned.apk CartaoSusAdventure
+
+
+cd G:\Meus Instaladores\Android\build-tools\23.0.3 
+
+zipalign.exe -v 4 C:\projetos\br.com.games.tadeuclasse\platforms\android\app\build\outputs\apk\release\app-release-unsigned.apk C:\projetos\br.com.games.tadeuclasse\platforms\android\app\build\outputs\apk\release\CartaoSUS-Signed.apk
+
+Verificando Assinatura
+jarsigner -verify -verbose -certs C:\projetos\br.com.games.tadeuclasse\platforms\android\app\build\outputs\apk\release\CartaoSUS-Signed.apk
